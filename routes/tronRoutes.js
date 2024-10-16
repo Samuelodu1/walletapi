@@ -7,7 +7,7 @@ require('dotenv').config();
 const router = express.Router();
 
 // API to generate a 12-word mnemonic
-router.get('/wallet-phrase', (req, res) => {
+router.get('/tron-wallet-phrase', (req, res) => {
   try {
     const mnemonic = bip39.generateMnemonic(128); // 128 bits = 12 words
     res.json({ mnemonic });
@@ -19,7 +19,7 @@ router.get('/wallet-phrase', (req, res) => {
 
 // API to generate a Tron wallet from mnemonic
 let walletIndex = 0;
-router.post('/wallet-generate', (req, res) => {
+router.post('/tron-wallet-generate', (req, res) => {
   try {
     const { mnemonic } = req.body;
 
@@ -70,12 +70,12 @@ router.post('/wallet-generate', (req, res) => {
 });
 
 // Placeholder for wallet balance
-router.get('/wallet-balance', (req, res) => {
+router.get('/tron-wallet-balance', (req, res) => {
   res.json({ message: 'wallet-balance endpoint' });
 });
 
 // Placeholder for last transaction
-router.get('/last-transaction', (req, res) => {
+router.get('/tron-last-transaction', (req, res) => {
   res.json({ message: 'last-transaction endpoint' });
 });
 
